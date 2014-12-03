@@ -5866,7 +5866,7 @@ var Mode = function() {
     this.$createKeywordList = function() {
         if (!this.$highlightRules)
             this.getTokenizer();
-        return this.$keywordList = this.$highlightRules.$keywordList || [];
+        return this.$keywordList = (this.$highlightRules || {}).$keywordList || [];
     };
 
     this.getCompletions = function(state, session, pos, prefix) {
