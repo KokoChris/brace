@@ -1793,6 +1793,15 @@ ace.define("ace/ext/language_tools", ["require", "exports", "module", "ace/snipp
     };
 
     var completers = [snippetCompleter, textCompleter, keyWordCompleter];
+    exports.setCompleters = function(val) {
+        for (var i = 0; i < val.length; i++)
+            completers[i] = val[i];
+        var j = i;
+        while (j < completers.length) {
+            completers.pop();
+            j++;
+        }
+    };
     exports.addCompleter = function(completer) {
         completers.push(completer);
     };
