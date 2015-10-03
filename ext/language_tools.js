@@ -1801,6 +1801,9 @@ ace.define("ace/ext/language_tools", ["require", "exports", "module", "ace/snipp
             completers.pop();
             j++;
         }
+        completers.unshift(keyWordCompleter)
+        completers.unshift(textCompleter)
+        completers.unshift(snippetCompleter)
     };
     exports.addCompleter = function(completer) {
         completers.push(completer);
